@@ -81,7 +81,8 @@ class Transactions extends Base {
 	@Bean
 	Consumer<List<String>> consumer() {
 		return list -> {
-			list.forEach(str -> bridge.send("output-out-0", str.toUpperCase()));
+			list.forEach(str -> bridge.send("output-out-0", "TX-"+str.toUpperCase()));
+
 			System.out.println("Hit Enter to exit the listener and commit transaction");
 			try {
 				System.in.read();
